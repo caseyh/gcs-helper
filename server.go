@@ -8,7 +8,7 @@ import (
 	"github.com/NYTimes/gcs-helper/v3/handlers"
 )
 
-func getHandler(c handlers.Config, client *storage.Client, hc *http.Client) http.HandlerFunc {
+func GetHandler(c handlers.Config, client *storage.Client, hc *http.Client) http.HandlerFunc {
 	proxyHandler := handlers.Proxy(c, hc)
 	mapHandler := handlers.Map(c, client)
 
