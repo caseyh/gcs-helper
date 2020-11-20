@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"cloud.google.com/go/storage"
-	"github.com/NYTimes/gcs-helper/v3/vodmodule"
+	"github.com/caseyh/gcs-helper/v3/vodmodule"
 )
 
 // Map returns the map handler.

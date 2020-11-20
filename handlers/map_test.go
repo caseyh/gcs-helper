@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/NYTimes/gcs-helper/v3/vodmodule"
+	"github.com/caseyh/gcs-helper/v3/vodmodule"
 	"github.com/google/go-cmp/cmp"
 )
 

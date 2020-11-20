@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/NYTimes/gcs-helper/v3/internal/testhelper"
+	"github.com/caseyh/gcs-helper/v3/internal/testhelper"
 )
 
 func TestProxyHandler(t *testing.T) {

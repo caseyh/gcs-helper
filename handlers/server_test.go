@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/NYTimes/gcs-helper/v3/internal/testhelper"
+	"github.com/caseyh/gcs-helper/v3/internal/testhelper"
 	"github.com/fsouza/fake-gcs-server/fakestorage"
 	"github.com/sirupsen/logrus"
 )

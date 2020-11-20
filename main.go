@@ -10,7 +10,7 @@ import (
 	"os"
 
 	"cloud.google.com/go/storage"
-	"github.com/NYTimes/gcs-helper/v3/handlers"
+	"github.com/caseyh/gcs-helper/v3/handlers"
 	"github.com/google/gops/agent"
 	"google.golang.org/api/option"
 )
@@ -37,7 +37,7 @@ func main() {
 	if err != nil {
 		logger.WithError(err).Fatal("failed to create storage client instance")
 	}
-	handler := getHandler(config, client, hc)
+	handler := GetHandler(config, client, hc)
 	listener, err := net.Listen("tcp", config.Listen)
 	if err != nil {
 		logger.WithField("listenAddr", config.Listen).WithError(err).Fatal("failed to start listener")

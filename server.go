@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"cloud.google.com/go/storage"
-	"github.com/NYTimes/gcs-helper/v3/handlers"
+	"github.com/caseyh/gcs-helper/v3/handlers"
 )
 
 func GetHandler(c handlers.Config, client *storage.Client, hc *http.Client) http.HandlerFunc {

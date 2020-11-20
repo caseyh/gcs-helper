@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/NYTimes/gcs-helper/v3/handlers"
-	"github.com/NYTimes/gcs-helper/v3/internal/testhelper"
+	"github.com/caseyh/gcs-helper/v3/handlers"
+	"github.com/caseyh/gcs-helper/v3/internal/testhelper"
 	"github.com/fsouza/fake-gcs-server/fakestorage"
 )
 
