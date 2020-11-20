@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"context"
+	"golang.org/x/oauth2/google"
 	"net/http"
 	"os"
 	"time"
@@ -57,6 +58,7 @@ type ClientConfig struct {
 	Timeout         time.Duration `envconfig:"GCS_CLIENT_TIMEOUT" default:"2s"`
 	IdleConnTimeout time.Duration `envconfig:"GCS_CLIENT_IDLE_CONN_TIMEOUT" default:"120s"`
 	MaxIdleConns    int           `envconfig:"GCS_CLIENT_MAX_IDLE_CONNS" default:"10"`
+	Credentials     *google.Credentials
 }
 
 // HTTPClient returns an HTTP client with the proper authentication config
@@ -66,7 +68,14 @@ func (c ClientConfig) HTTPClient() (*http.Client, error) {
 		IdleConnTimeout: c.IdleConnTimeout,
 		MaxIdleConns:    c.MaxIdleConns,
 	}
-	transport, err := ghttp.NewTransport(context.Background(), &baseTransport, option.WithScopes(storage.ScopeReadOnly))
+	var transport http.RoundTripper
+	var err error
+	if c.Credentials != nil {
+		transport, err = ghttp.NewTransport(context.Background(), &baseTransport, option.WithScopes(storage.ScopeReadOnly), option.WithCredentials(c.Credentials))
+	} else {
+		transport, err = ghttp.NewTransport(context.Background(), &baseTransport, option.WithScopes(storage.ScopeReadOnly))
+	}
+
 	return &http.Client{
 		Timeout:   c.Timeout,
 		Transport: transport,
